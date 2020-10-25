@@ -15,33 +15,30 @@ items = [
         "id": 1,
         "name": "Blender",
         "condition": "Like New",
-        "description": 
-        "photo_name""blender.jpg",
-        "available": True
+        "description": "Great for making smoothies!",
+        "photo_name": "blender.jpg"
     },
     {
         "id": 2,
-        "name": "Pixie",
-        "breed": "Pug",
-        "age": 7,
-        "photo_name": "dog_2.jpg",
-        "available_for_adoption": True
+        "name": "Crockpot",
+        "condition": "Used",
+        "description": "Only works half of the time",
+        "photo_name": "crockpot.jpg"
     },
     {
         "id": 3,
-        "name": "Ellie",
-        "breed": "Golden Retriever",
-        "age": 3,
-        "photo_name": "dog_3.jpg",
-        "available_for_adoption": True
+        "name": "Microwave",
+        "condition": "Never Used",
+        "description": "Still in the box, great for college",
+        "photo_name": "microwave.jpg"
     }
 ]
-
 
 @app.route('/', methods=['GET'])
 @app.route('/home', methods=['GET'])
 def index():
     return render_template('index.html')
+
 
 @app.route('/loginpage', methods=['GET'])
 def login():
@@ -49,56 +46,38 @@ def login():
         return render_template('login.html')
 
 
-@app.route('/dogs', methods=['GET'])
-@app.route('/dogs/<dog_id>', methods=['GET'])
-def all_dogs(dog_id=None):
-    if dog_id:  # show single dog
-        single_dog = [items[int(dog_id)]] if len(items)-1 >= int(dog_id) else []
-        return render_template('dogs.html', dogs=single_dog)
-    else:  # show all dogs
-        return render_template('dogs.html', dogs=items)
+@app.route('/listings', methods=['GET'])
+@app.route('/listings/<list_id>', methods=['GET'])
+def all_listings(item_id=None):
+    if item_id:  # show single listing
+        single_item = [items[int(item_id)]] if len(items)-1 >= int(item_id) else []
+        return render_template('listings.html', items=single_item)
+    else:  # show all listings
+        return render_template('listings.html', items=items)
 
 
-@app.route('/random-dog', methods=['GET'])
-def random_dog():
-    return render_template('login.html')
-# this is sending to the login page. i know
+# @app.route('/listings', methods=['GET'])
+# def listings():
+#     return render_template('listings.html')
 
 
-# @app.route('/create-dog', methods=['GET', 'POST'])
-# def create_dog():
-#     dog_name = request.form['dog_name']
-#     dog_breed = request.form['dog_breed']
-#     dog_age = request.form['dog_age']
-#     dog_is_available_for_adoption = True
+@app.route('/create-listing', methods=['GET', 'POST'])
+def create_listing():
+    item_name = request.form['item_name']
+    condition = request.form['condition']
+    description = request.form['description']
 
-#     new_dog = {
-#         "id": len(dogs),
-#         "name": dog_name,
-#         "breed": dog_breed,
-#         "age": dog_age,
-#         "photo_name": "placeholder_dog.png",
-#         "available_for_adoption": dog_is_available_for_adoption
-#     }
-
-<<<<<<< HEAD
-    new_listing = {
+    new_item = {
         "id": len(items),
-        "item": item_name,
-        "condition": item_condition,
-        "description": item_description,
-        "photo_name": "placeholder_icon.png",
-        "available": item_is_available
+        "name": item_name,
+        "condtion": condition,
+        "description": description,
+        "photo_name": "placeholder_icon.png"
     }
 
-    items.append(new_listing)
+    items.append(new_item)
 
-    return redirect(item_is_available_for_adoption)
-=======
-#     dogs.append(new_dog)
-
-#     return redirect(all_dogs)
->>>>>>> 895d79e78f8c930b4c776f66dc03326523d52d47
+    return redirect(all_listings)
 
 
 if __name__ == "__main__":
