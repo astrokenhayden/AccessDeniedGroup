@@ -65,14 +65,23 @@ def random_dog():
 # this is sending to the login page. i know
 
 
+# @app.route('/create-dog', methods=['GET', 'POST'])
+# def create_dog():
+#     dog_name = request.form['dog_name']
+#     dog_breed = request.form['dog_breed']
+#     dog_age = request.form['dog_age']
+#     dog_is_available_for_adoption = True
 
-@app.route('/create-listing', methods=['GET', 'POST'])
-def create_dog():
-    item_name = request.form['dog_name']
-    item_condition = request.form['dog_breed']
-    item_description = request.form['dog_age']
-    item_is_available_for_adoption = True
+#     new_dog = {
+#         "id": len(dogs),
+#         "name": dog_name,
+#         "breed": dog_breed,
+#         "age": dog_age,
+#         "photo_name": "placeholder_dog.png",
+#         "available_for_adoption": dog_is_available_for_adoption
+#     }
 
+<<<<<<< HEAD
     new_listing = {
         "id": len(items),
         "item": item_name,
@@ -85,6 +94,11 @@ def create_dog():
     items.append(new_listing)
 
     return redirect(item_is_available_for_adoption)
+=======
+#     dogs.append(new_dog)
+
+#     return redirect(all_dogs)
+>>>>>>> 895d79e78f8c930b4c776f66dc03326523d52d47
 
 
 if __name__ == "__main__":
