@@ -44,38 +44,35 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/dogs', methods=['GET'])
-@app.route('/dogs/<dog_id>', methods=['GET'])
-def all_dogs(dog_id=None):
-    if dog_id:  # show single dog
-        single_dog = [dogs[int(dog_id)]] if len(dogs)-1 >= int(dog_id) else []
-        return render_template('dogs.html', dogs=single_dog)
-    else:  # show all dogs
-        return render_template('dogs.html', dogs=dogs)
+@app.route('/listings', methods=['GET'])
+def listings():
+    return render_template('listings.html')
 
 
+@app.route('/login', methods=['GET'])
+def login():
+    return render_template('login.html')
 
 
+# @app.route('/create-dog', methods=['GET', 'POST'])
+# def create_dog():
+#     dog_name = request.form['dog_name']
+#     dog_breed = request.form['dog_breed']
+#     dog_age = request.form['dog_age']
+#     dog_is_available_for_adoption = True
 
-@app.route('/create-listing', methods=['GET', 'POST'])
-def create_dog():
-    item_name = request.form['dog_name']
-    item_condition = request.form['dog_breed']
-    item_description = request.form['dog_age']
-    item_is_available_for_adoption = True
+#     new_dog = {
+#         "id": len(dogs),
+#         "name": dog_name,
+#         "breed": dog_breed,
+#         "age": dog_age,
+#         "photo_name": "placeholder_dog.png",
+#         "available_for_adoption": dog_is_available_for_adoption
+#     }
 
-    new_listing = {
-        "id": len(items),
-        "item": item_name,
-        "condition": item_condition,
-        "description": item_description,
-        "photo_name": "placeholder_icon.png",
-        "available": item_is_available
-    }
+#     dogs.append(new_dog)
 
-    item.append(new_item)
-
-    return redirect(all_listings)
+#     return redirect(all_dogs)
 
 
 if __name__ == "__main__":
