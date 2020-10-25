@@ -2,35 +2,35 @@
 
 {% block content %}
 
-    <h1>All Listings</h1>
+    <h1>Listings</h1>
 
     <hr/>
 
     <!-- Display Listings Info -->
-    {% for dog in dogs %}
-        <img height=300 src="{{ url_for('static', filename='/media/' + dog.photo_name) }}"
-             alt="Image of dog named {{ dog.name }}">
-        <h3>{{ dog.name }}</h3>
-        <p>Breed: {{ dog.breed }}</p>
-        <p>Age: {{ dog.age }}</p>
+    {% for item in listings %}
+        <img height=300 src="{{ url_for('static', filename='/media/' + item.photo_name) }}"
+             alt="Image of item named {{ item.name }}">
+        <h3>{{ item.name }}</h3>
+        <p>Condition: {{ item.condition }}</p>
+        <p>Description: {{ item.description }}</p>
         <hr/>
     {% endfor %}
 
     <!-- Form to Create a New Listing -->
-    <h2>Add a Dog</h2>
+    <h2>Add a Listing</h2>
 
-    <form action="{{ url_for('create_dog') }}" method="POST">
+    <form action="{{ url_for('create_listing') }}" method="POST">
         <div class="form-group">
-            <label for="dog_name">Name:</label>
-            <input type="text" class="form-control" name="dog_name">
+            <label for="item_name">Item:</label>
+            <input type="text" class="form-control" name="item_name">
         </div>
         <div class="form-group">
-            <label for="dog_breed">Breed:</label>
-            <input type="text" class="form-control" name="dog_breed">
+            <label for="condition">Condition:</label>
+            <input type="text" class="form-control" name="condition">
         </div>
         <div class="form-group">
-            <label for="dog_age">Age:</label>
-            <input type="number" class="form-control" name="dog_age">
+            <label for="description">Description:</label>
+            <input type="text" class="form-control" name="description">
         </div>
         <input type="submit" class="btn btn-default">
     </form>

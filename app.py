@@ -10,14 +10,14 @@ Consequently, the dogs data is reset every time the application is restarted.
 If you would like, you can replace this dogs data structure with your own database connection logic.
 '''
 
-dogs = [
+items = [
     {
         "id": 1,
-        "name": "Spot",
-        "breed": "Boston Terrier",
-        "age": 2,
-        "photo_name": "dog_1.jpg",
-        "available_for_adoption": True
+        "name": "Blender",
+        "condition": "Like New",
+        "description": ,
+        "photo_name": "blender.jpg",
+        "available": True
     },
     {
         "id": 2,
@@ -54,32 +54,28 @@ def all_dogs(dog_id=None):
         return render_template('dogs.html', dogs=dogs)
 
 
-@app.route('/random-dog', methods=['GET'])
-def random_dog():
-    random_dog_index = randint(0, len(dogs)-1)  # generate a random index in the dogs array
-    random_dog = dogs[random_dog_index]
-    return render_template('random_dog.html', dog=random_dog)
 
 
-@app.route('/create-dog', methods=['GET', 'POST'])
+
+@app.route('/create-listing', methods=['GET', 'POST'])
 def create_dog():
-    dog_name = request.form['dog_name']
-    dog_breed = request.form['dog_breed']
-    dog_age = request.form['dog_age']
-    dog_is_available_for_adoption = True
+    item_name = request.form['dog_name']
+    item_condition = request.form['dog_breed']
+    item_description = request.form['dog_age']
+    item_is_available_for_adoption = True
 
-    new_dog = {
-        "id": len(dogs),
-        "name": dog_name,
-        "breed": dog_breed,
-        "age": dog_age,
-        "photo_name": "placeholder_dog.png",
-        "available_for_adoption": dog_is_available_for_adoption
+    new_listing = {
+        "id": len(items),
+        "item": item_name,
+        "condition": item_condition,
+        "description": item_description,
+        "photo_name": "placeholder_icon.png",
+        "available": item_is_available
     }
 
-    dogs.append(new_dog)
+    item.append(new_item)
 
-    return redirect(all_dogs)
+    return redirect(all_listings)
 
 
 if __name__ == "__main__":
