@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Site Login</title>
+        <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./login.css" media="screen">
+    </head>
+
+    <Body>
+        <section>
+            <h1 class="page-name">Welcome to our Technica 2020 Hack.</h1>
+            <h2 class="page-subheader">Log in as an exisiting user or create a new account.</h2>
+        </section>
+
+        <section class="main-content">
+
+            <div class="left-div">
+                <br><br/>
+                <br><br/>
+                <h1 class="page-name">Log in.</h1>
+                <form>
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-field" style='width: 225px;' required>
+                    <br><br/>
+                    <label for="email" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-field" required>
+                    <br><br/>
+                    <input type="submit" value="Submit" class="submit-button">
+                </form>
+            </div>
+
+            <div class="right-div">
+                <br><br/>
+                <h1 class="page-name">Sign up.</h1>
+                <form>
+                    <label for="text" class="form-label">Full name:</label>
+                    <input type="text" id="name" name="name" class="form-field" required>
+                    <br><br/>
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-field" style='width: 225px;' required>
+                    <br><br/>
+                    <label for="email" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-field" required>
+                    <br><br/>
+                    <input type="submit" value="Submit" class="submit-button">
+                </form>
+            </div>
+            
+        </section>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyAkit4l6YVzdEKPaGgr9X8nwaelJyS8o-o",
+                authDomain: "technica2020-67eaa.firebaseapp.com",
+                databaseURL: "https://technica2020-67eaa.firebaseio.com",
+                projectId: "technica2020-67eaa",
+                storageBucket: "technica2020-67eaa.appspot.com",
+                messagingSenderId: "212169443457",
+                appId: "1:212169443457:web:5d85881a1fcb9d0b78a580",
+                measurementId: "G-8M3LWX4E18"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+        
+    </Body>
+</html>
