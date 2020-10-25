@@ -2,20 +2,41 @@
 
 {% block content %}
 
-<h2> 
-    <body>
+<html lang="en-us">
 
+    <head>
+        <meta charset="UTF-8">
+        <title>Home Page</title>
+        <link rel="stylesheet" type="text/css" href="./static/styles/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./static/styles/normalize.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./static/styles/login.css" media="screen">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    </head>
+     
+        <body>
+            
 
-        <button onclick='window.location.href="/loginpage"'>Log in here!</button>
-        
-    </body>
-    </h2>
-    <p> 
-        <style>
+            <section class="main-content">
+                <h1 class="page-name" style="color: white; background: rgb(25, 150, 161);">Welcome to Housewarming.</h1>
+            </section>
+
+            <div class="left-div">
+                <p>
+                    <text style="color: white; font-size: 30px; text-align: center; bottom: 0px;"> We are here to allow you to be able to find your basic needs. Everything on this website is free to you. </text>
+                </p>
+            </div>
            
-        </style>
-        <text> We are here to allow you to be able to find your basic needs. Everything with this website is free to you. </text>
-    
-    </p>
+            <div class="right-div">
+                <h2>
+                    <button onclick='window.location.href="/loginpage"' style="color: white;">Log in here!</button>
+                </h2>
+            </div>
+            
+            
+            
+        </body> 
+</html>
+
+
 
 {% endblock %}
