@@ -43,6 +43,11 @@ dogs = [
 def index():
     return render_template('index.html')
 
+@app.route('/loginpage', methods=['GET'])
+def login():
+    if 'button':
+        return render_template('login.html')
+
 
 @app.route('/dogs', methods=['GET'])
 @app.route('/dogs/<dog_id>', methods=['GET'])
@@ -56,9 +61,8 @@ def all_dogs(dog_id=None):
 
 @app.route('/random-dog', methods=['GET'])
 def random_dog():
-    random_dog_index = randint(0, len(dogs)-1)  # generate a random index in the dogs array
-    random_dog = dogs[random_dog_index]
-    return render_template('random_dog.html', dog=random_dog)
+    return render_template('login.html')
+# this is sending to the login page. i know
 
 
 @app.route('/create-dog', methods=['GET', 'POST'])
